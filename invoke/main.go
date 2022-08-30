@@ -5,6 +5,8 @@ import (
 )
 
 func Test(a, b int) int {
+	defer fmt.Print("aaaa")
+	defer fmt.Print("bbbb")
 	return a + b
 }
 

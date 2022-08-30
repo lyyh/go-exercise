@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type header struct {
 	Encryption  string `json:"encryption"`  // 结构体加标签
@@ -9,12 +12,32 @@ type header struct {
 	Partnercode int    `json:"partnercode"` // 结构体加标签
 }
 
+// type Point struct {
+// 	X float64 `json:"x"`
+// 	Y float64 `json:"y"`
+// }
+
+type Point struct {
+	X float64 `json:"x,omitempty"`
+	Y float64 `json:"y,omitempty"`
+}
+
+// type Point [2]float64
+
 func main() {
-	s := make([]int, 6)
-	fmt.Printf("%p\n", s)
-	// x := s
-	s = append(s, 2) // 指向了一个新数组
-	fmt.Printf("%p\n", s)
+	var p = Point{X: 12.12}
+	data, err := json.Marshal(&p)
+	if err != nil {
+		fmt.Println(data)
+	}
+	fmt.Println(string(data))
+	// var p = Point{}
+	// fmt.Println(p)
+	// s := make([]int, 6)
+	// fmt.Printf("%p\n", s)
+	// // x := s
+	// s = append(s, 2) // 指向了一个新数组
+	// fmt.Printf("%p\n", s)
 	// fmt.Println(s)
 	// fmt.Println(&x)
 	// h := header{
