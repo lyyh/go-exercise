@@ -1,9 +1,6 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-)
+import "fmt"
 
 type header struct {
 	Encryption  string `json:"encryption"`  // 结构体加标签
@@ -25,12 +22,12 @@ type Point struct {
 // type Point [2]float64
 
 func main() {
-	var p = Point{X: 12.12}
-	data, err := json.Marshal(&p)
-	if err != nil {
-		fmt.Println(data)
-	}
-	fmt.Println(string(data))
+	// var p = Point{X: 12.12}
+	// data, err := json.Marshal(&p)
+	// if err != nil {
+	// 	fmt.Println(data)
+	// }
+	// fmt.Println(string(data))
 	// var p = Point{}
 	// fmt.Println(p)
 	// s := make([]int, 6)
@@ -55,4 +52,8 @@ func main() {
 	// a := 123
 	// // b := a.(type)
 	// fmt.Println(b)
+	a := [3]int{1, 2, 3}
+	for i := 0; i < len(a); i++ {
+		fmt.Printf("%p  ", &a[i])
+	}
 }
