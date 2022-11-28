@@ -1,18 +1,33 @@
 package main
 
 import (
+	"fmt"
 	"reflect"
+	"sort"
 	"testing"
 )
 
 // 字符串包含
 func StringsContains(arr []string, val string) int {
-	for i := 0; i < len(arr); i++ {
-		if arr[i] == val {
-			return i
-		}
-	}
-	return -1
+	// for range 查找
+	// for idx, item := range arr {
+	// 	if item == val {
+	// 		return idx
+	// 	}
+	// }
+	// return -1
+
+	// for idx 查找
+	// for i := 0; i < len(arr); i++ {
+	// 	if arr[i] == val {
+	// 		return i
+	// 	}
+	// }
+	// return -1
+
+	idx := sort.SearchStrings(arr, val)
+	fmt.Println(idx)
+	return idx
 }
 
 // 包含
@@ -35,6 +50,6 @@ func BenchmarkContains(b *testing.B) {
 	sa := []string{"a", "b", "c"}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		StringsContains(sa, "a")
+		StringsContains(sa, "d")
 	}
 }
