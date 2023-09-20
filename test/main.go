@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type header struct {
 	Encryption  string `json:"encryption"`  // 结构体加标签
@@ -19,7 +21,9 @@ type Point struct {
 	Y float64 `json:"y,omitempty"`
 }
 
-// type Point [2]float64
+type Extend struct {
+	IsVirtual *bool `json:"isVirtual,omitempty"`
+}
 
 func main() {
 	// var p = Point{X: 12.12}
@@ -52,8 +56,13 @@ func main() {
 	// a := 123
 	// // b := a.(type)
 	// fmt.Println(b)
-	a := [3]int{1, 2, 3}
-	for i := 0; i < len(a); i++ {
-		fmt.Printf("%p  ", &a[i])
-	}
+	// a := [3]int{1, 2, 3}
+	// for i := 0; i < len(a); i++ {
+	// 	fmt.Printf("%p  ", &a[i])
+	// }
+	p := Extend{}
+	fmt.Printf("isVirtual %v", p)
+	// if p.IsVirtual {
+	// 	fmt.Printf("%#p", p)
+	// }
 }
