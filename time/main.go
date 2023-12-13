@@ -6,5 +6,9 @@ import (
 )
 
 func main() {
-	fmt.Printf("%s", time.Time(time.Now()))
+	a := float64(time.Now().UnixMilli()) / 1e3
+	b := float64(time.Now().Unix())
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Printf("%f %d", a, b)
 }
