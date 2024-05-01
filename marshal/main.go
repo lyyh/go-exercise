@@ -24,4 +24,11 @@ func main() {
 		return
 	}
 	fmt.Printf("%s", b)
+
+	x := &User{}
+	var s = ""
+	err = json.Unmarshal([]byte(s), x)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 }
